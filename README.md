@@ -29,3 +29,4 @@ docker run -dv $(pwd):/data \
 -   `BASE_PATH=/` - prefixed base path for all routing (useful if you don't wanna re-write paths)
 -   `HOST=https://mydomain.com` - Host to prefix short urls with
 -   `DB_PATH=urls.db` - Path to sqlite db. Creates on startup if empty.
+-   `SHORT_LENGTH=4` - Length of short ids.

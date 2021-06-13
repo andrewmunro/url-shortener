@@ -22,6 +22,8 @@ class ShortUrl extends Model<ShortUrlAttributes> {
 	creationDate: Date;
 }
 
+const idLength = process.env.SHORT_LENGTH ? parseInt(process.env.SHORT_LENGTH) : 4;
+
 export class Database {
 	private file: string;
 	private logging: boolean;
@@ -55,7 +57,7 @@ export class Database {
 		return await ShortUrl.findOrCreate({
 			where: { url },
 			defaults: {
-				id: generate(),
+				id: generate().slice(0, idLength),
 				url
 			}
 		});
